@@ -20,6 +20,20 @@ DROP DATABASE IF EXISTS `blogdb`;
 CREATE DATABASE IF NOT EXISTS `blogdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `blogdb`;
 
+-- Dumping structure for table blogdb.blog_posts
+DROP TABLE IF EXISTS `blog_posts`;
+CREATE TABLE IF NOT EXISTS `blog_posts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `publication_date` datetime DEFAULT NULL,
+  `created_on` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_on` datetime DEFAULT NULL,
+  `is_deleted` bit(1) DEFAULT b'0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 -- Dumping data for table blogdb.blog_posts: ~3 rows (approximately)
 INSERT INTO `blog_posts` (`id`, `title`, `content`, `author`, `publication_date`, `created_on`, `updated_on`, `is_deleted`) VALUES
 	(3, 'Green', 'climate change is very crucial', 'Shubham malhotra', '2023-12-06 16:15:09', '2023-12-07 08:49:20', '2023-12-07 09:24:02', b'0'),
